@@ -117,6 +117,7 @@ two.left = one; thirteen.right = fourteen
 #     findClosestValueInBst_while(ten, 12)
 # print(findClosestValueInBst_while(ten, 12))
 
+# Recursion version
 def return_closest_node_value(tree, target, closest):
     # base case
     if not tree:
