@@ -28,14 +28,20 @@ def tournament_winner(competitions, results):
     else:
       team = competitions[i][1]
       winners[team] = 1 if not team in winners else winners[team] + 1
-      
-  max_wins = 0
-  winner = None
-  for winning_team in winners:
-    if winners[winning_team] > max_wins:
-      max_wins = winners[winning_team]
-      winner = winning_team    
-  return winner
+  
+  ### using max
+  return max(winners, key = winners.get)
+
+  ### using for loop
+  # max_wins = 0
+  # winner = None
+  # for winning_team in winners:
+  #   if winners[winning_team] > max_wins:
+  #     max_wins = winners[winning_team]
+  #     winner = winning_team    
+  # return winner
+
+  ### using reduce
   # import functools
   # winner = functools.reduce(lambda acc, team: {team: winners[team]} if winners[team] > list(acc.values())[0] else acc, winners, {"winner": 0})
   # return list(winner.keys())[0]
@@ -67,8 +73,8 @@ def tournament2(competitions, results):
             scores["winner"] = team
     return scores["winner"]
 
-for _ in range(9999999):
-  tournament_winner(competitions, results)
+# for _ in range(9999999):
+#   tournament_winner(competitions, results)
 print(tournament_winner(competitions, results))
 
 # for _ in range(9999999):
